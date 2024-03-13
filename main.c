@@ -6,6 +6,11 @@ int numeroRandom();
 void mayorYMenor(int, int, int);
 int sumaMenoresN(int);
 void tablaMultiplicar(int);
+float suma(float, float);
+float resta(float, float);
+float multiplicacion(float, float);
+float division(float, float);
+
 
 
 int main()
@@ -71,6 +76,11 @@ int main()
     tablaMultiplicar(numeroTabla);
 
     break;
+  case 5:
+    system("cls");
+    printf("5. Realice una pequeña calculadora, utilizando funciones (una función de suma, una de multiplicación, una de resta, una de división…).\n");
+
+
   default:
     printf("La opcion ingresada no es valida.");
   }
@@ -120,3 +130,20 @@ void tablaMultiplicar(int x){
     printf("%i X %i = %i\n", i, x, producto);
   }
 }
+
+float suma(float x, float y){
+  return x + y;
+}
+
+float resta(float x, float y){
+  return x - y;
+}
+
+float multiplicacion(float x, float y){
+  return x * y;
+}
+
+float division(float x, float y){
+  return x / y;
+}
+
