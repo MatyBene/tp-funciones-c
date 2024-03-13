@@ -14,6 +14,7 @@ int main()
   int random = numeroRandom();
   int a, b, c;
   int numero, suma;
+  int numeroTabla;
 
   printf("Trabajo practico 1: Funciones\n");
   printf("1. Desarrollar una función que devuelva un valor RANDOM en el rango de 0 a 100.\n");
@@ -64,7 +65,12 @@ int main()
     system("cls");
     printf("4. Desarrollar una función que muestre la tabla de multiplicar de un número entero recibido por parámetro.\n");
 
+    printf("Ingrese un numero para conocer su tabla de multiplicar: \n");
+    scanf("%i", &numeroTabla);
 
+    tablaMultiplicar(numeroTabla);
+
+    break;
   default:
     printf("La opcion ingresada no es valida.");
   }
@@ -108,4 +114,9 @@ int sumaMenoresN(int x){
   return suma;
 }
 
-
+void tablaMultiplicar(int x){
+  for(int i = 0; i <= 10; i++){
+    int producto = x * i;
+    printf("%i X %i = %i\n", i, x, producto);
+  }
+}
