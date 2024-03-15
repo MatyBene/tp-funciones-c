@@ -101,12 +101,16 @@ int main()
           printf("El resultado de la multiplicacion es: %i", multiplicaDosEnteros(num5, num6));
           break;
         case '/':
-          printf("El resultado de la division es: %f", divideDosEnteros(num5, num6));
+          if(divideDosEnteros(num5, num6) == 0){
+            printf("No se puede dividir por cero.");
+          } else {
+            printf("El resultado de la division es: %.2f", divideDosEnteros(num5, num6));
+          }
           break;
         default:
           printf("No se ingreso un operador valido.");
-        break;
       }
+      break;
     default:
       printf("La opcion ingresada no es valida.");
   }
@@ -173,11 +177,12 @@ int multiplicaDosEnteros(int x, int y){
 }
 
 float divideDosEnteros(int x, int y){
-  if(y == 0){
-    printf("No se puede resolver la operacion de dividir por cero.");
-    return 0;
-  } else {
-    return (float) x / y;
+  float division = 0;
+
+  if(y != 0){
+    division = (float) x / y;
   }
+
+  return division;
 }
 
