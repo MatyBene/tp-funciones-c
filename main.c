@@ -2,95 +2,124 @@
 #include <stdlib.h>
 #include <time.h>
 
-int numeroRandom();
+int devuelveEnteroRandom();
 void mayorYMenor(int, int, int);
 int sumaMenoresN(int);
 void tablaMultiplicar(int);
-float suma(float, float);
-float resta(float, float);
-float multiplicacion(float, float);
-float division(float, float);
+int sumaDosEnteros(int, int);
+int restaDosEnteros(int, int);
+int multiplicaDosEnteros(int, int);
+float divideDosEnteros(int, int);
 
 
 
 int main()
 {
   int opcion;
-  int random = numeroRandom();
-  int a, b, c;
-  int numero, suma;
-  int numeroTabla;
 
-  printf("Trabajo practico 1: Funciones\n");
-  printf("1. Desarrollar una función que devuelva un valor RANDOM en el rango de 0 a 100.\n");
-  printf("2. Diseñe una función que reciba 3 números enteros y muestre el mayor y el menor.\n");
-  printf("3. Diseñe una función que reciba un número entero N y realice la suma de los números enteros positivos menores que N y lo retorne. N es un  dato ingresado por el usuario en el main.\n");
-  printf("4. Desarrollar una función que muestre la tabla de multiplicar de un número entero recibido por parámetro.\n");
-  printf("5. Realice una pequeña calculadora, utilizando funciones (una función de suma, una de multiplicación, una de resta, una de división…).\n");
-  printf("6. Realizar una función que reciba un número positivo entero por parámetro por referencia, y cambie su signo a negativo.\n");
-  printf("7. Realizar una función que reciba dos números enteros por parámetro por referencia y cargue sus valores el usuario dentro de la función.\n");
-  printf("Elija el punto del tp que quiera verificar:\n");
-  scanf("%i", &opcion);
+  srand(time(NULL));
+
+  printf("TP 3 - FUNCIONES SIN PILAS\n\n");
+  printf("1  -  Ejercicio 1\n");
+  printf("2  -  Ejercicio 2\n");
+  printf("3  -  Ejercicio 3\n");
+  printf("4  -  Ejercicio 4\n");
+  printf("5  -  Ejercicio 5\n");
+  printf("6  -  Ejercicio 6\n");
+  printf("7  -  Ejercicio 7\n\n");
+  printf("Ingrese opcion numerica\n");
+  fflush(stdin);
+  scanf("%d", &opcion);
+  system("cls");
 
   switch(opcion){
-  case 1:
-    system("cls");
-    printf("1. Desarrollar una función que devuelva un valor RANDOM en el rango de 0 a 100.\n");
+    case 1:
+      printf("1. Desarrollar una función que devuelva un valor RANDOM en el rango de 0 a 100.\n");
 
-    printf("Numero aleatorio: %i\n", random);
+      printf("Numero aleatorio: %i\n", devuelveEnteroRandom());
 
-    break;
-  case 2:
-    system("cls");
-    printf("2. Diseñe una función que reciba 3 números enteros y muestre el mayor y el menor.\n");
+      break;
+    case 2:
+      printf("2. Diseñe una función que reciba 3 números enteros y muestre el mayor y el menor.\n");
 
-    printf("Ingrese un numero: ");
-    scanf("%i", &a);
-    printf("Ingrese un numero: ");
-    scanf("%i", &b);
-    printf("Ingrese un numero: ");
-    scanf("%i", &c);
+      int num1, num2, num3;
 
-    mayorYMenor(a, b, c);
+      printf("Ingrese un numero: ");
+      scanf("%i", &num1);
+      printf("Ingrese un numero: ");
+      scanf("%i", &num2);
+      printf("Ingrese un numero: ");
+      scanf("%i", &num3);
 
-    break;
-  case 3:
-    system("cls");
-    printf("3. Diseñe una función que reciba un número entero N y realice la suma de los números enteros positivos menores que N y lo retorne. N es un  dato ingresado por el usuario en el main.\n");
+      mayorYMenor(num1, num2, num3);
 
-    printf("Ingrese un numero: ");
-    scanf("%i", &numero);
+      break;
+    case 3:
+      printf("3. Diseñe una función que reciba un número entero N y realice la suma de los números enteros positivos menores que N y lo retorne. N es un  dato ingresado por el usuario en el main.\n");
 
-    suma = sumaMenoresN(numero);
+      int num4;
 
-    printf("La suma de todos los numeros positivos menores que %i, es de: %i.", numero, suma);
+      printf("Ingrese un numero: ");
+      scanf("%i", &num4);
 
-    break;
-  case 4:
-    system("cls");
-    printf("4. Desarrollar una función que muestre la tabla de multiplicar de un número entero recibido por parámetro.\n");
+      printf("La suma de todos los numeros positivos menores que %i, es de: %i.", num4, sumaMenoresN(num4));
 
-    printf("Ingrese un numero para conocer su tabla de multiplicar: \n");
-    scanf("%i", &numeroTabla);
+      break;
+    case 4:
+      printf("4. Desarrollar una función que muestre la tabla de multiplicar de un número entero recibido por parámetro.\n");
 
-    tablaMultiplicar(numeroTabla);
+      int numeroTabla;
 
-    break;
-  case 5:
-    system("cls");
-    printf("5. Realice una pequeña calculadora, utilizando funciones (una función de suma, una de multiplicación, una de resta, una de división…).\n");
+      printf("Ingrese un numero para conocer su tabla de multiplicar: \n");
+      scanf("%i", &numeroTabla);
 
+      tablaMultiplicar(numeroTabla);
 
-  default:
-    printf("La opcion ingresada no es valida.");
+      break;
+    case 5:
+      printf("5. Realice una pequeña calculadora, utilizando funciones (una función de suma, una de multiplicación, una de resta, una de división…).\n");
+
+      char operador;
+      int num5, num6;
+
+      printf("Ingrese el primer numero: ");
+      scanf("%i", &num5);
+      printf("Ingrese el operador (+, -, *, /): ");
+      fflush(stdin);
+      scanf("%c", &operador);
+      printf("Ingrese el segundo numero: ");
+      scanf("%i", &num6);
+
+      switch(operador){
+        case '+':
+          printf("El resultado de la suma es: %i", sumaDosEnteros(num5, num6));
+          break;
+        case '-':
+          printf("El resultado de la resta es: %i", restaDosEnteros(num5, num6));
+          break;
+        case '*':
+          printf("El resultado de la multiplicacion es: %i", multiplicaDosEnteros(num5, num6));
+          break;
+        case '/':
+          printf("El resultado de la division es: %f", divideDosEnteros(num5, num6));
+          break;
+        default:
+          printf("No se ingreso un operador valido.");
+        break;
+      }
+    default:
+      printf("La opcion ingresada no es valida.");
   }
 
   return 0;
 }
 
-int numeroRandom(){
-  srand(time(NULL));
-  return rand() % 101;
+int devuelveEnteroRandom(){
+  int random = 0;
+
+  random = rand() % 101;
+
+  return random;
 }
 
 void mayorYMenor(int x, int y, int z){
@@ -131,19 +160,24 @@ void tablaMultiplicar(int x){
   }
 }
 
-float suma(float x, float y){
+int sumaDosEnteros(int x, int y){
   return x + y;
 }
 
-float resta(float x, float y){
+int restaDosEnteros(int x, int y){
   return x - y;
 }
 
-float multiplicacion(float x, float y){
+int multiplicaDosEnteros(int x, int y){
   return x * y;
 }
 
-float division(float x, float y){
-  return x / y;
+float divideDosEnteros(int x, int y){
+  if(y == 0){
+    printf("No se puede resolver la operacion de dividir por cero.");
+    return 0;
+  } else {
+    return (float) x / y;
+  }
 }
 
