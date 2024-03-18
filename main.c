@@ -11,6 +11,7 @@ int restaDosEnteros(int, int);
 int multiplicaDosEnteros(int, int);
 float divideDosEnteros(int, int);
 void cambioSignoANegativo(int *);
+void cargarDosNumeros(int *, int *);
 
 
 int main()
@@ -124,6 +125,17 @@ int main()
       printf("El número con su signo cambiado es: %i\n", num7);
 
       break;
+    case 7:
+      printf("Realizar una función que reciba dos números enteros por parámetro por referencia y cargue sus valores el usuario dentro de la función.");
+
+      int num8, num9;
+
+      cargarDosNumeros(&num8, &num9);
+
+      printf("\nEl primer numero cargado fue: %i", num8);
+      printf("\nEl segundo numero cargado fue: %i", num9);
+
+      break;
     default:
       printf("La opcion ingresada no es valida.");
   }
@@ -201,4 +213,11 @@ float divideDosEnteros(int x, int y){
 
 void cambioSignoANegativo(int *x){
   *x *= -1;
+}
+
+void cargarDosNumeros(int *x, int *y){
+  printf("\nIngrese el primer numero: ");
+  scanf("%i", x);
+  printf("\nIngrese el segundo numero: ");
+  scanf("%i", y);
 }
