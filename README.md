@@ -1,4 +1,4 @@
-# Trabajo Práctico N° 1: Funciones sin pilas
+# Trabajo Práctico N° 3: Funciones sin pilas
 
 Realizar todas las funciones en un mismo proyecto, para ir probando su correcto funcionamiento deberá desarrollar una función main, donde cree las variables que necesite, e invoque a las funciones como corresponda en cada caso.
 
