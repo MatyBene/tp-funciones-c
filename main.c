@@ -10,7 +10,7 @@ int sumaDosEnteros(int, int);
 int restaDosEnteros(int, int);
 int multiplicaDosEnteros(int, int);
 float divideDosEnteros(int, int);
-
+void cambioSignoANegativo(int *);
 
 
 int main()
@@ -111,6 +111,19 @@ int main()
           printf("No se ingreso un operador valido.");
       }
       break;
+    case 6:
+      printf("6. Realizar una función que reciba un número positivo entero por parámetro por referencia, y cambie su signo a negativo.");
+
+      int num7;
+
+      printf("Ingrese un número positivo: ");
+      scanf("%i", &num7);
+
+      cambioSignoANegativo(&num7);
+
+      printf("El número con su signo cambiado es: %i\n", num7);
+
+      break;
     default:
       printf("La opcion ingresada no es valida.");
   }
@@ -186,3 +199,6 @@ float divideDosEnteros(int x, int y){
   return division;
 }
 
+void cambioSignoANegativo(int *x){
+  *x *= -1;
+}
